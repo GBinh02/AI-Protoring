@@ -1,0 +1,17 @@
+# Cơ sở dữ liệu chứa log vi phạm của sinh viên — KHÔNG commit vì lý do quyền riêng tư
+# (đúng nguyên tắc "privacy by design" đã nêu ở SRS mục 10)
+edushield.db
+edushield.db-journal
+
+# Ảnh snapshot bằng chứng vi phạm — dữ liệu nhạy cảm, không lưu vĩnh viễn trong repo
+snapshots/*
+!snapshots/.gitkeep
+
+# Môi trường ảo Python / cache
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Biến môi trường chứa PROCTOR_API_TOKEN thật
+.env
