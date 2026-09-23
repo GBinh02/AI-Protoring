@@ -493,7 +493,7 @@ function UploadPanel({ authHeaders, teacherId, onClose, onUploaded }) {
               <input
                 type="text"
                 required
-                placeholder="VD: Kiểm tra giữa kỳ CSDL"
+                placeholder="VD: Kiểm tra giữa kỳ"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl bg-bg-card border border-border-default text-text-primary
@@ -507,7 +507,7 @@ function UploadPanel({ authHeaders, teacherId, onClose, onUploaded }) {
               </label>
               <input
                 type="text"
-                placeholder="VD: CSDL-K15-CA1"
+                placeholder="VD: CSDL-DE01"
                 value={examCode}
                 onChange={(e) => setExamCode(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl bg-bg-card border border-border-default text-text-primary

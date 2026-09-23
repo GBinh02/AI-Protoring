@@ -363,7 +363,7 @@ def parse_captured_at(captured_at_str: str) -> datetime:
         # Đảm bảo đối tượng luôn gắn thông tin múi giờ UTC
         if dt.tzinfo is None:
             dt = dt.replace(tzinfo=timezone.utc)
-        return dt
+        return dt.astimezone(timezone.utc)
     except (ValueError, AttributeError) as exc:
         raise ValueError(f"Định dạng thời gian không hợp lệ: {captured_at_str}") from exc
 

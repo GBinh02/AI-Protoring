@@ -77,9 +77,9 @@ export default function App() {
         <div className="story-content">
           <span className="eyebrow">KHÔNG GIAN THI TRỰC TUYẾN</span>
           <h1>
-            Tập trung làm bài.
+            Tập trung làm bài
             <br />
-            <em>An tâm mỗi kỳ thi.</em>
+            <em>An tâm mỗi kỳ thi</em>
           </h1>
           <p>
             Một không gian kết nối sinh viên và giảng viên, từ chuẩn bị đề thi
@@ -119,7 +119,7 @@ export default function App() {
           </div>
         </div>
         <footer>
-          EDUSHIELD AI <span>Học tập chủ động. Đánh giá minh bạch.</span>
+          EDUSHIELD AI <span>Học tập chủ động - Đánh giá minh bạch.</span>
         </footer>
       </section>
       <section className="login-form-area">
@@ -160,7 +160,7 @@ export default function App() {
               required
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              placeholder={role === "student" ? "VD: SV202601" : "VD: GV2026"}
+              placeholder={role === "student" ? "VD: SV-2151220053" : "VD: GV-2026"}
               aria-invalid={!!error}
               aria-describedby={error ? "login-error" : undefined}
             />

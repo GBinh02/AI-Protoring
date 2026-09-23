@@ -24,7 +24,7 @@ export default function StudentGateway({
           <h1>
             {stage === 3
               ? "Bạn đã hoàn thành."
-              : "Sẵn sàng cho\nkỳ thi của bạn."}
+              : "Sẵn sàng cho\nkỳ thi của bạn"}
           </h1>
           <p>
             {stage === 3

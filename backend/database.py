@@ -140,10 +140,10 @@ class Violation(Base):
             "student_id": self.student_id,
             "student_name": self.student_name,
             "violation_type": self.violation_type,
-            "captured_at": self.captured_at.isoformat() if self.captured_at else None,
+            "captured_at": (self.captured_at.replace(tzinfo=timezone.utc) if self.captured_at.tzinfo is None else self.captured_at.astimezone(timezone.utc)).isoformat() if self.captured_at else None,
             "image_url": image_url,
             "image_path": self.image_path,
-            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "created_at": (self.created_at.replace(tzinfo=timezone.utc) if self.created_at.tzinfo is None else self.created_at.astimezone(timezone.utc)).isoformat() if self.created_at else None,
         }
 
 

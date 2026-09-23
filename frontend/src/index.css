@@ -1291,3 +1291,56 @@
  .workspace-main .stat-card > div:first-child { width: 28px; height: 28px; }
  .workspace-main .overview-search { padding: 12px; }
 }
+
+/* Center the login presentation and only the student introduction text. */
+.login-story > .brand { justify-content: center; }
+.login-story .story-content { width: 100%; margin-inline: auto; text-align: center; }
+.story-content > p { margin-inline: auto; }
+.story-illustration { margin-inline: auto; text-align: left; }
+.story-features { justify-content: center; }
+.login-submit { position: relative; justify-content: center; text-align: center; padding-inline: 44px; }
+.login-submit > svg { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); }
+.gateway-intro > .eyebrow,
+.gateway-intro > h1,
+.gateway-intro > p { text-align: center; }
+.gateway-intro > p:not(.eyebrow) { margin-inline: auto; }
+
+/* Readable violation feed: timestamp never competes with the description. */
+.violation-entry { min-width: 0; }
+.violation-entry-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; margin-bottom: 10px; }
+.violation-entry-label { color: #b91c1c; background: #feecee; padding: 4px 8px; border-radius: 6px; font-size: 13px; font-weight: 650; }
+.violation-entry-time { font-family: monospace; font-size: 12px; color: #64767e; white-space: nowrap; }
+.violation-entry-body { display: flex; align-items: flex-start; gap: 12px; }
+.violation-entry-image { width: 72px; height: 54px; flex-shrink: 0; object-fit: cover; border-radius: 7px; }
+.violation-entry-body p { min-width: 0; margin: 0; font-size: 14px; line-height: 1.55; overflow-wrap: break-word; word-break: normal; }
+
+/* Compact preparation screens, with natural scrolling on small viewports. */
+.gateway-header { padding-block: 16px; }
+.gateway-main { margin-block: 24px; gap: 56px; }
+.gateway-footer { padding: 12px; }
+.gateway-panel > .exam-ready-card { padding: 24px; }
+.exam-ready-card > * + * { margin-top: 16px; }
+.exam-ready-card > .text-center > div:first-child { width: 40px; height: 40px; border-radius: 12px; }
+.exam-ready-card > .text-center > * + * { margin-top: 8px; }
+.exam-ready-card h1 { font-size: 23px; line-height: 1.25; overflow-wrap: anywhere; }
+.exam-ready-card > .grid { gap: 12px; }
+.exam-ready-card > .grid > div { padding: 10px; }
+.exam-ready-card > .grid .text-2xl { font-size: 22px; }
+.exam-ready-card ul { line-height: 1.5; }
+@media (min-width: 901px) and (max-height: 800px) {
+  .gateway-main { margin-block: 16px; }
+  .gateway-intro h1 { font-size: 34px; margin-block: 12px; }
+  .gateway-steps { margin-block: 20px; gap: 14px; }
+  .gateway-tips { padding-top: 16px; gap: 10px; }
+  .gateway-panel > .exam-ready-card { padding: 20px; }
+  .exam-ready-card > * + * { margin-top: 12px; }
+}
+@media (max-width: 900px) {
+  .gateway-main { gap: 24px; }
+}
+@media (min-width: 901px) and (max-height: 750px) {
+  .gateway-header { padding-block: 12px; }
+  .gateway-main { margin-block: 10px; }
+  .gateway-footer { padding-block: 8px; }
+  .exam-ready-card > * + * { margin-top: 10px; }
+}

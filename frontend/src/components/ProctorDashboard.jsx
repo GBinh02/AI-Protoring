@@ -419,8 +419,12 @@ export default function ProctorDashboard({ teacherId, authToken, onLogout }) {
   const formatDateTime = (isoString) => {
     if (!isoString) return "—";
     try {
-      const d = new Date(isoString);
+      // SQLite timestamps from older API versions are UTC without an offset.
+      const value = /(?:Z|[+-]\d{2}:?\d{2})$/i.test(isoString)
+        ? isoString : isoString + "Z";
+      const d = new Date(value);
       return d.toLocaleString("vi-VN", {
+        timeZone: "Asia/Ho_Chi_Minh",
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
@@ -622,7 +626,7 @@ export default function ProctorDashboard({ teacherId, authToken, onLogout }) {
             <p>
               {activeTab === "giamsat"
                 ? "Theo dõi vi phạm, tra cứu sinh viên và kiểm tra ảnh chứng cứ."
-                : "Chuẩn bị đề thi, công bố và theo dõi kết quả tại một nơi."}
+                : "Chuẩn bị đề thi, công bố và theo dõi kết quả tại đây."}
             </p>
           </div>
           {activeTab === "giamsat" && (

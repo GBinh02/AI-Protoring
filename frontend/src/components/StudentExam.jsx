@@ -264,7 +264,8 @@ export default function StudentExam({ studentId, studentName, onLogout }) {
       if (statusInfo) {
         const logEntry = {
           id: now,
-          time: new Date().toLocaleTimeString("vi-VN", {
+          time: new Date(payload.captured_at).toLocaleTimeString("vi-VN", {
+            timeZone: "Asia/Ho_Chi_Minh",
             hour: "2-digit",
             minute: "2-digit",
             second: "2-digit",
@@ -952,7 +953,7 @@ export default function StudentExam({ studentId, studentName, onLogout }) {
         studentName={studentName}
         stage={examResult ? 3 : examData ? 2 : 1}
       >
-        <div className="glass-card w-full max-w-lg p-8 sm:p-10 space-y-6">
+        <div className="glass-card exam-ready-card w-full max-w-lg p-8 sm:p-10 space-y-6">
           <div className="text-center space-y-3">
             <div className="w-14 h-14 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center">
               <Shield className="w-7 h-7 text-accent-cyan" />
@@ -1600,27 +1601,18 @@ export default function StudentExam({ studentId, studentName, onLogout }) {
                         transition={{ duration: 0.25, ease: "easeOut" }}
                         className="bg-bg-card border border-border-default rounded-xl p-3.5 border-l-4 border-l-red-500/60 shadow-md"
                       >
-                        <div className="flex items-start justify-between gap-4">
-                          {log.image && (
-                            <img
-                              src={log.image}
-                              alt="Ảnh chụp bằng chứng vi phạm"
-                              className="w-[100px] h-[75px] object-cover rounded-lg bg-bg-primary border border-red-500/40 flex-shrink-0 shadow-lg"
-                            />
-                          )}
-                          <div className="flex-1 min-w-0 py-1">
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-sm font-bold text-red-700 bg-red-500/10 px-2.5 py-1 rounded truncate">
-                                {log.label}
-                              </span>
-                            </div>
-                            <p className="text-base text-text-primary font-medium leading-relaxed break-words">
-                              {log.message}
-                            </p>
+                        <div className="violation-entry">
+                          <div className="violation-entry-heading">
+                            <span className="violation-entry-label">{log.label}</span>
+                            <span className="violation-entry-time">{log.time}</span>
                           </div>
-                          <span className="text-xs text-text-muted flex-shrink-0 font-mono bg-bg-primary/50 px-2.5 py-1.5 rounded-md mt-1">
-                            {log.time}
-                          </span>
+                          <div className="violation-entry-body">
+                            {log.image && (
+                              <img src={log.image} alt="Ảnh chụp bằng chứng vi phạm"
+                                className="violation-entry-image" />
+                            )}
+                            <p>{log.message}</p>
+                          </div>
                         </div>
                       </motion.div>
                     ))}
